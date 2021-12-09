@@ -23,7 +23,7 @@ public class CollectItems : MonoBehaviour
     void Start()
     {
         Debug.Log("Game Started");
-        ++CollectItems.Collectables;//Object create, increment coin count
+        ++Collectables;//Object create, increment coin count
         Debug.Log("Items Collected in game: " + Collectables);
     } //End Start()
 
@@ -45,13 +45,13 @@ public class CollectItems : MonoBehaviour
             }
             else if (gameObject.CompareTag("Tools") && CollectingHealth == false)
             {
-                ListCheck.CollectableCheck(gameObject.name, gameObject.tag);
+                GameManager.CollectableCheck(gameObject.name, gameObject.tag);
                 Debug.Log("Got Tool");
                 Destroy(gameObject);//destroy self
             }
             else
             {
-                //Damage();
+                Debug.Log("We got problems");
             }
         }//End if other.CompareTag(Player)
         Debug.Log("Enter Collider");
@@ -60,18 +60,18 @@ public class CollectItems : MonoBehaviour
     //Called when object is destroyed
     private void OnDestroy()
     {
-        --CollectItems.Collectables;//subtract collectables on destroy
+        --Collectables;//subtract collectables on destroy
+        Debug.Log("Items Left in game: " + Collectables);
 
-        if (CollectItems.Collectables <= 0 && CollectingHealth == true)
+        if (Collectables <= 0 && CollectingHealth == true)
         {
             GameObject Timer = GameObject.Find("LevelTimer");
             Destroy(Timer);
 
         }
-        else
+        else if(Collectables <= 0 && CollectingHealth == false)
         {
             CollectItems.Collectables = 6;
-            CollectingHealth = true;
         }
 
     }//End OnDestroy()

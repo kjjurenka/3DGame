@@ -12,8 +12,13 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    bool SpeakOnce = false;
+    public void Update()
     {
-        GameManager.Speak = true;
+        if (NPCTrigger.NPCtalking == true && SpeakOnce == false)
+        {
+            GameManager.Speak = true;
+            SpeakOnce = true;
+        }
     }
 }
