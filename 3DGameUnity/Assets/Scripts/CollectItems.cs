@@ -22,9 +22,9 @@ public class CollectItems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Game Started");
+        //Debug.Log("Game Started");
         ++Collectables;//Object create, increment coin count
-        Debug.Log("Items Collected in game: " + Collectables);
+        //Debug.Log("Items Collected in game: " + Collectables);
     } //End Start()
 
     // Update is called once per frame
@@ -41,15 +41,17 @@ public class CollectItems : MonoBehaviour
         {
             if (gameObject.CompareTag("Health") && CollectingHealth)
             {
+                GameManager.CollectableCheck(gameObject.name, gameObject.tag);
                 Destroy(gameObject);//destroy self
             }
             else if (gameObject.CompareTag("Tools") && CollectingHealth == false)
             {
                 GameManager.CollectableCheck(gameObject.name, gameObject.tag);
                 Debug.Log("Got Tool");
+                //Collectables = 7; // delete later
                 Destroy(gameObject);//destroy self
             }
-            else
+            else if (gameObject.CompareTag("Health") && CollectingHealth == false)
             {
                 Debug.Log("We got problems");
             }
@@ -65,13 +67,12 @@ public class CollectItems : MonoBehaviour
 
         if (Collectables <= 0 && CollectingHealth == true)
         {
-            GameObject Timer = GameObject.Find("LevelTimer");
-            Destroy(Timer);
-
+            
         }
-        else if(Collectables <= 0 && CollectingHealth == false)
+        else if(Collectables <= 6 && CollectingHealth == false)
         {
-            CollectItems.Collectables = 6;
+            //CollectItems.Collectables = 6;
+            GameManager.GotAllItems();
         }
 
     }//End OnDestroy()

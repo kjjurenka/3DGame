@@ -15,10 +15,11 @@ public class NPCInteraction : MonoBehaviour
     bool SpeakOnce = false;
     public void Update()
     {
+        /*
         if (NPCTrigger.NPCtalking == true && SpeakOnce == false)
         {
             GameManager.Speak = true;
             SpeakOnce = true;
-        }
+        }*/
     }
 }

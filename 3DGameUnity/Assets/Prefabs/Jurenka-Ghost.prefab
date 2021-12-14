@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6693402811195886633}
   - component: {fileID: 1694677288052655420}
+  - component: {fileID: 7475486791119688933}
   m_Layer: 0
   m_Name: Jurenka-Ghost
   m_TagString: Untagged
@@ -125,6 +126,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f30cb4477f02aa4f821579366687b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7475486791119688933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316420284159022739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ad29609fedc9a41bd5173a58481bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7405951089142670824
